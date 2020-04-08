@@ -173,3 +173,112 @@ describe('Ray.shift', () => {
     expect(removed2).toBe(51);
   })
 })
+describe('Ray.include', () => {
+  it(`is a method`, () => {
+    expect(typeof ray.include).toBe('function')
+  })
+  it(`tells if the value is included`, () => {
+    ray[0] = 5;
+    ray[1] = 'hello';
+    ray[2] = false;
+    ray[3] = 2;
+    ray[4] = 3;
+    ray.length = 5;
+    let value=ray.include('hello');
+    expect(value).toBe(true);
+    let value1=ray.include('notthere');
+    expect(value1).toBe(false);
+  })
+})
+describe('Ray.indexOf', () => {
+  it(`is a method`, () => {
+    expect(typeof ray.indexOf).toBe('function')
+  })
+  it(`tells if the value is included`, () => {
+    ray[0] = 5;
+    ray[1] = 'hello';
+    ray[2] = false;
+    ray[3] = 2;
+    ray[4] = 3;
+    ray.length = 5;
+    let value=ray.indexOf('hello');
+    expect(value).toBe(1);
+    let value1=ray.indexOf('notthere');
+    expect(value1).toBe(-1);
+  })
+})
+
+describe('Ray.reverse', () => {
+  it(`is a method`, () => {
+    expect(typeof ray.reverse).toBe('function')
+  })
+
+  it(`reverse the order`, () => {
+    ray[0] = 5;
+    ray[1] = 'hello';
+    ray[2] = false;
+    ray[3] = 2;
+    ray[4] = 3;
+    ray.length = 5;
+    ray.reverse()
+    expect(ray[0]).toBe(3)
+    expect(ray[1]).toBe(2)
+    expect(ray[2]).toBe(false)
+    expect(ray[3]).toBe('hello')
+    expect(ray[4]).toBe(5)
+  })
+})
+  describe('Ray.slice', () => {
+    it(`is a method`, () => {
+      expect(typeof ray.slice).toBe('function')
+    })
+    it(`no value given return original`,() => {
+      ray[0] = 5;
+      ray[1] = 'hello';
+      ray[2] = false;
+      ray[3] = 2;
+      ray[4] = 3;
+      ray.length = 5;
+      const newRay = ray.slice()
+      expect(newRay[0]).toBe(5)
+      expect(newRay[1]).toBe('hello')
+      expect(newRay[2]).toBe(false)
+      expect(newRay[3]).toBe(2)
+      expect(newRay[4]).toBe(3)
+      expect(newRay.length).toBe(5)
+    })
+    it(`starts new from value`, () => {
+      ray[0] = 5;
+      ray[1] = 'hello';
+      ray[2] = false;
+      ray[3] = 2;
+      ray[4] = 3;
+      ray.length = 5;
+      const newRay = ray.slice(1)
+      expect(newRay[0]).toBe('hello')
+      expect(newRay[1]).toBe(false)
+      expect(newRay[2]).toBe(2)
+      expect(newRay[3]).toBe(3)
+      expect(newRay.length).toBe(4)
+      const newRay2 = newRay.slice(2)
+      expect(newRay2[0]).toBe(2)
+      expect(newRay2[1]).toBe(3)
+      expect(newRay2.length).toBe(2)
+    })
+    it(`starts new from value and ends at second value`, () => {
+      ray[0] = 5;
+      ray[1] = 'hello';
+      ray[2] = false;
+      ray[3] = 2;
+      ray[4] = 3;
+      ray.length = 5;
+      const newRay = ray.slice(1,4)
+      expect(newRay[0]).toBe('hello')
+      expect(newRay[1]).toBe(false)
+      expect(newRay[2]).toBe(2)
+      expect(newRay.length).toBe(3)
+      const newRay2 = newRay.slice(0,1)
+      expect(newRay2[0]).toBe('hello')
+      expect(newRay2.length).toBe(1)
+    })
+})

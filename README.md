@@ -45,7 +45,7 @@ Tasks can be completed in any order, but here's our recommendation:
 
 ### Stretch Goals
 
-That was all hard enough, but if you finish, there are many, MANY array methods worth implementing. We have no tests for these, so you'll have to try them out manually! Here are the eones we'd recommend trying out, in rough order of difficulty:
+That was all hard enough, but if you finish, there are many, MANY array methods worth implementing. We have no tests for these, so you'll have to try them out manually! Here are the ones we'd recommend trying out, in rough order of difficulty:
 
 * `include` and `indexOf`
 * `reverse`
